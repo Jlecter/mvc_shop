@@ -18,10 +18,11 @@ function __autoload($class_name)
         // Form the name and path to the file with the class
         $path = ROOT . $path . $class_name . '.php';
 
-        //If such a file exists, connect it
+        // If such a file exists, connect it
         if (is_file($path)) {
-            include_once $path;
+            require_once $path;
         }
     }
 }
+
 spl_autoload_register('__autoload');
