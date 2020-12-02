@@ -1,5 +1,9 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
+use app\components\Router;
+
 // FRONT CONTROLLER
 
 // General settings
@@ -9,9 +13,7 @@ error_reporting(E_ALL);
 session_start();
 
 // Connecting system files
-define('ROOT', dirname(__FILE__));
-require_once(ROOT.'/components/Autoload.php');
-
+define('ROOT', __DIR__);
 
 // Call Router
 $router = new Router();

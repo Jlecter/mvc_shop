@@ -1,5 +1,13 @@
 {
-  "require": {
-    "squizlabs/php_codesniffer": "*"
-  }
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        },
+        "classmap": [
+            "app/config"
+        ]
+    },
+    "require": {
+        "squizlabs/php_codesniffer": "*"
+    }
 }
