@@ -35,7 +35,7 @@ class Product
         $noImage = 'delivery.png';
 
         // Product folder path
-        $path = '/app/template/images/home/';
+        $path = '/public/images/home/';
 
         // Product image path
         $pathToProductImage = $path . $noImage;

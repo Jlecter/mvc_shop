@@ -12,7 +12,7 @@
     </div>
 </footer><!--/Footer-->
 
-<script src="/app/template/js/main.js"></script>
+<script src="/public/js/main.js"></script>
 
 
 </body>

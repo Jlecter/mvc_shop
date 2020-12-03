@@ -6,10 +6,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Главная</title>
-        <link href="/app/template/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/app/template/css/animate.css" rel="stylesheet">
-        <link href="/app/template/css/main.css" rel="stylesheet">
-        <link href="/app/template/css/responsive.css" rel="stylesheet">
+        <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/public/css/animate.css" rel="stylesheet">
+        <link href="/public/css/main.css" rel="stylesheet">
+        <link href="/public/css/responsive.css" rel="stylesheet">
     </head><!--/head-->
 
     <body>
@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="logo pull-left">
-                                    <a href="/catalog"><img src="/app/template/images/home/logo.png" alt="" /></a>
+                                    <a href="/catalog"><img src="/public/images/home/logo.png" alt="" /></a>
                                 </div>
                             </div>
                             <div class="col-sm-8">

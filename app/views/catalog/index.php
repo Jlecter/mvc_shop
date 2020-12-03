@@ -20,13 +20,13 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                                             <img src="<?php echo Product::getImage(); ?>"><br><br>
                                             <div class="card-buttons">
                                                 <p>Product - <?=$code ?></p>
-                                                <p class="card-price">Price - <?=$price ?></p>
+                                                <p class="card-price"><?=$price ?></p>
                                                 <p>
                                                     <a href="/product/<?= $code?>">
                                                         Read more
                                                     </a>
                                                 </p>
-                                                <button class="btn btn-default button-add-cart" data-id="<?=$code ?>">
+                                                <button class="btn btn-default button-add-cart" id="<?=$code ?>">
                                                         <i class="fa fa-shopping-cart"></i> Add to cart
                                                 </button>
                                             </div>

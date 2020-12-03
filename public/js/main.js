@@ -6,6 +6,7 @@ const close = document.querySelector(".close");
 const modalBody = document.querySelector('.modal-body');
 const modalPrice = document.querySelector('.modal-pricetag');
 const buttonClearCart = document.querySelector('.clear-cart');
+const add = document.querySelector('.button-add-cart');
 
 
 const cart = [];
@@ -28,7 +29,7 @@ const getData = async function(url){
 };
 
 function addToCart(event) {
-
+    console.log(266);
     const target = event.target;
 
     const buttonAddToCart = target.closest('.button-add-cart');
@@ -55,6 +56,7 @@ function addToCart(event) {
 }
 
 function renderCart() {
+
     modalBody.textContent = '';
 
     cart.forEach(function({ id, title, cost, count }) {
@@ -99,6 +101,10 @@ function changeCount(event) {
 }
 
 function init() {
+
+    /*add.addEventListener("click", function () {
+        addToCart();
+    });*/
 
     cartButton.addEventListener("click", function () {
         renderCart();
