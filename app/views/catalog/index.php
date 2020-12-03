@@ -14,19 +14,19 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                         <br>
                         <?php foreach ($products as $code => $price): ?>
                             <div class="col-sm-3">
-                                <div  class="product-image-wrapper">
+                                <div >
                                     <div  class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="<?php echo Product::getImage(); ?>"><br><br>
                                             <div class="card-buttons">
-                                                <p>Product - <?=$code ?></p>
-                                                <p class="card-price"><?=$price ?></p>
+                                                <p class="shop-item-title">Product - <?=$code ?></p>
+                                                <p class="card-price shop-item-price"><?=$price ?></p>
                                                 <p>
                                                     <a href="/product/<?= $code?>">
                                                         Read more
                                                     </a>
                                                 </p>
-                                                <button class="btn btn-default button-add-cart" id="<?=$code ?>">
+                                                <button class="shop-item-button btn btn-default button-add-cart">
                                                         <i class="fa fa-shopping-cart"></i> Add to cart
                                                 </button>
                                             </div>
@@ -35,13 +35,24 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                                 </div>
                             </div>
                         <?php endforeach;?>
-
                     </div><!--features_items-->
-
-
                 </div>
             </div>
         </div>
     </section>
-
+    <section class="containers content-section"> <br><br><br>
+        <h2 class="title text-center"> SHOPPING CART</h2><br>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
 <?php include ROOT . '/app/views/layouts/footer.php'; ?>

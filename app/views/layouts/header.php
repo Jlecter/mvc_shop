@@ -10,6 +10,7 @@
         <link href="/public/css/animate.css" rel="stylesheet">
         <link href="/public/css/main.css" rel="stylesheet">
         <link href="/public/css/responsive.css" rel="stylesheet">
+        <script src="/public/js/main.js"></script>
     </head><!--/head-->
 
     <body>
@@ -47,15 +48,14 @@
                                     <a href="/catalog"><img src="/public/images/home/logo.png" alt="" /></a>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
-                                <div class="shop-menu pull-right">
-                                    <div class="buttons">
-                                        <button class="button button-cart" id="cart-button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                            <span class="button-text">Shopping cart</span>
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="social-icons pull-right">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="https://www.facebook.com" target="_blank">
+                                            <img src="/public/images/home/facebook.png">
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
