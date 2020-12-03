@@ -13,6 +13,7 @@ class ProductController
     /**
      * Action for view product page
      * @param string $productCode
+     * @return bool
      */
     public function actionView(string $productCode)
     {

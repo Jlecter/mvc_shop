@@ -1,49 +1,121 @@
-/*price range*/
+'use strict';
 
-$('#sl2').slider();
+const cartButton = document.querySelector("#cart-button");
+const modal = document.querySelector(".modal");
+const close = document.querySelector(".close");
+const modalBody = document.querySelector('.modal-body');
+const modalPrice = document.querySelector('.modal-pricetag');
+const buttonClearCart = document.querySelector('.clear-cart');
 
-var RGBChange = function () {
-    $('#RGB').css('background', 'rgb(' + r.getValue() + ',' + g.getValue() + ',' + b.getValue() + ')')
+
+const cart = [];
+
+const toggleModal = function() {
+    modal.classList.toggle("is-open");
 };
 
-/*scroll to top*/
+const getData = async function(url){
 
-$(document).ready(function () {
-    $(function () {
-        $.scrollUp({
-            scrollName: 'scrollUp', // Element ID
-            scrollDistance: 300, // Distance from top/bottom before showing element (px)
-            scrollFrom: 'top', // 'top' or 'bottom'
-            scrollSpeed: 300, // Speed back to top (ms)
-            easingType: 'linear', // Scroll to top easing (see http://easings.net/)
-            animation: 'fade', // Fade, slide, none
-            animationSpeed: 200, // Animation in speed (ms)
-            scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
-            //scrollTarget: false, // Set a custom target element for scrolling to the top
-            scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
-            scrollTitle: false, // Set a custom <a> title if required.
-            scrollImg: false, // Set true to use image
-            activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-            zIndex: 2147483647 // Z-Index for the overlay
+    const response = await fetch(url);
+
+    if (!response.ok){
+        throw new Error(`Ошибка по адресу ${url},
+          статус ошибки ${response.status}!`);
+    }
+
+    return await response.json();
+
+};
+
+function addToCart(event) {
+
+    const target = event.target;
+
+    const buttonAddToCart = target.closest('.button-add-cart');
+
+    if(buttonAddToCart) {
+        const card = target.closest('.card');
+        const cost = card.querySelector('.card-price').textContent;
+        const code = buttonAddToCart.code;
+
+        const food = cart.find(function (item) {
+            return item.id === code;
         });
+
+        if(food){
+            food.count += 1;
+        } else {
+            cart.push({
+                code: code,
+                cost: cost,
+                count: 1
+            });
+        }
+    }
+}
+
+function renderCart() {
+    modalBody.textContent = '';
+
+    cart.forEach(function({ id, title, cost, count }) {
+        const itemCart = `
+        <div class="food-row">
+            <span class="food-name">GD</span>
+            <strong class="food-price">£0.15</strong>
+            <div class="food-counter">
+                <button class="counter-button">-</button>
+                <span class="counter">1</span>
+                <button class="counter-button">+</button>
+            </div>
+        </div>
+     `;
+        modalBody.insertAdjacentHTML('afterbegin', itemCart);
     });
 
-    $('#myCarousel').carousel({
-        interval: 10000
-    })
+    const totalPrice = cart.reduce(function(result, item) {
+        return result + (parseFloat(item.cost) * item.count);
+    }, 0);
 
-    $('.carousel .item').each(function () {
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
+    modalPrice.textContent = totalPrice + ' грн';
 
-        if (next.next().length > 0) {
-            next.next().children(':first-child').clone().appendTo($(this));
+}
+
+function changeCount(event) {
+    const target = event.target;
+
+    if (target.classList.contains('counter-button')){
+        const food = cart.find(function(item) {
+            return item.id === target.dataset.id;
+        });
+        if (target.classList.contains('counter-minus')) {
+            food.count--;
+            if (food.count === 0){
+                cart.splice(cart.indexOf(food), 1);
+            }
         }
-        else {
-            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-        }
+        if (target.classList.contains('counter-plus')) food.count++;
+        renderCart();
+    }
+}
+
+function init() {
+
+    cartButton.addEventListener("click", function () {
+        renderCart();
+        toggleModal();
     });
-});
+
+    buttonClearCart.addEventListener('click', function () {
+        cart.length = 0;
+        renderCart();
+    });
+
+    modalBody.addEventListener('click', changeCount);
+
+    //cardsMenu.addEventListener('click', addToCart);
+
+    close.addEventListener("click", toggleModal);
+
+}
+
+init();

@@ -18,18 +18,18 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                                     <div  class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="<?php echo Product::getImage(); ?>"><br><br>
-                                            Product - <?=$code ?>. <br>Price - <?=$price ?>
-                                            <p>
-                                                <a href="/product/<?= $code?>">
-                                                    Read more
-                                                </a>
-                                            </p>
-                                            <p>
-                                                <a href="#" data-id="<?= $code?> "
-                                                   class="btn btn-default add-to-cart">
-                                                    <i class="fa fa-shopping-cart"></i>Add to cart
-                                                </a>
-                                            </p>
+                                            <div class="card-buttons">
+                                                <p>Product - <?=$code ?></p>
+                                                <p class="card-price">Price - <?=$price ?></p>
+                                                <p>
+                                                    <a href="/product/<?= $code?>">
+                                                        Read more
+                                                    </a>
+                                                </p>
+                                                <button class="btn btn-default button-add-cart" id="<?=$code ?>">
+                                                        <i class="fa fa-shopping-cart"></i> Add to cart
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -12,7 +12,7 @@ class CatalogController
 {
 
     /**
-     * Action для страницы "Каталог товаров"
+     * Action for the page "Catalog"
      */
     public function actionIndex()
     {

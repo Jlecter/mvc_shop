@@ -33,9 +33,7 @@ class Router
      */
     private function getURI()
     {
-        if (!empty($_SERVER['REQUEST_URI'])) {
-            return trim($_SERVER['REQUEST_URI'], '/');
-        }
+        if (!empty($_SERVER['REQUEST_URI'])) return trim($_SERVER['REQUEST_URI'], '/');
     }
 
     /**
@@ -75,9 +73,8 @@ class Router
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
                 //If the controller method is successfully called, we exit the router.
-                if ($result != null) {
-                    break;
-                }
+                if ($result != null) break;
+
             }
         }
     }
