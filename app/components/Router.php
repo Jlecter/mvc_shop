@@ -21,7 +21,7 @@ class Router
     public function __construct()
     {
         // The path to the file with routes
-        $routesPath = ROOT . '/app/config/routes.php';
+        $routesPath = ROOT . '/config/routes.php';
 
         // Getting routes from a file
         $this->routes = require_once($routesPath);

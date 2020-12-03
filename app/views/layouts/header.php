@@ -23,7 +23,8 @@
                             <div class="col-sm-6">
                                 <div class="contactinfo">
                                     <ul class="nav nav-pills">
-                                        <li><a href="#"><i class="fa fa-envelope"></i> er.illia.radchenko@gmail.com</a></li>
+                                        <li><a href="https://www.google.com/intl/ru/gmail/about/">
+                                                <i class="fa fa-envelope"></i> er.illia.radchenko@gmail.com</a></li>
                                     </ul>
                                 </div>
                             </div>

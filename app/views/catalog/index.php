@@ -26,7 +26,7 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                                                         Read more
                                                     </a>
                                                 </p>
-                                                <button class="btn btn-default button-add-cart" id="<?=$code ?>">
+                                                <button class="btn btn-default button-add-cart" data-id="<?=$code ?>">
                                                         <i class="fa fa-shopping-cart"></i> Add to cart
                                                 </button>
                                             </div>

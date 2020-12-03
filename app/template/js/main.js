@@ -104,18 +104,7 @@ function init() {
         renderCart();
         toggleModal();
     });
-
-    buttonClearCart.addEventListener('click', function () {
-        cart.length = 0;
-        renderCart();
-    });
-
-    modalBody.addEventListener('click', changeCount);
-
-    //cardsMenu.addEventListener('click', addToCart);
-
-    close.addEventListener("click", toggleModal);
-
+    
 }
 
 init();
