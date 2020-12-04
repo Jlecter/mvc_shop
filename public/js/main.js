@@ -1,4 +1,4 @@
-console.log('ara');
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -66,12 +66,12 @@ function addItemToCart(title, price) {
     let cartItems = document.getElementsByClassName('cart-items')[0]
     let cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (let i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
+        if (cartItemNames[i].innerText === title) {
             alert('This item is already added to the cart')
             return
         }
     }
-    let cartRowContents = `
+    cartRow.innerHTML = `
         <div class="cart-item cart-column">
             <span class="cart-item-title">${title}</span>
         </div>
@@ -80,23 +80,38 @@ function addItemToCart(title, price) {
             <input class="cart-quantity-input" type="number" value="1">
             <button class="btn btn-danger" type="button">REMOVE</button>
         </div>`
-    cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
 function updateCartTotal() {
+    let discountZA = {
+       name: 'ZA',
+       count: 4,
+       discount: 1
+    }
+    let discountFC = {
+        name: 'FC',
+        count: 6,
+        discount: 0.2
+    }
     let cartItemContainer = document.getElementsByClassName('cart-items')[0]
     let cartRows = cartItemContainer.getElementsByClassName('cart-row')
     let total = 0
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i]
+        let productCode = cartRow.getElementsByClassName('cart-item-title')[0].innerHTML
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        let quantity = cartRow.getElementsByClassName('cart-quantity-input')[0].value
         let price = parseFloat(priceElement.innerText.replace('£', ''))
-        let quantity = quantityElement.value
-        total = total + (price * quantity)
+        if ( productCode === discountZA.name && +quantity === discountZA.count){
+            total = total + (price * quantity) - discountZA.discount
+        }else if(productCode === discountFC.name  && quantity >= discountFC.count && (+quantity % discountFC.count === 0)) {
+            total = total + (price * quantity - price * quantity * discountFC.discount)
+        }else{
+            total = total + (price * quantity)
+        }
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total

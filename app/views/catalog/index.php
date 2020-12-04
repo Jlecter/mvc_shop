@@ -14,7 +14,7 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                         <br>
                         <?php foreach ($products as $code => $price): ?>
                             <div class="col-sm-3">
-                                <div >
+                                <div>
                                     <div  class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="<?php echo Product::getImage(); ?>"><br><br>
@@ -40,7 +40,11 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
             </div>
         </div>
     </section>
-    <section class="containers content-section"> <br><br><br>
+    <br>
+    <h4 class="title text-center">DISCOUNTS</h4>
+    <p class="text-center"> FOR <strong>25%</strong> OFF - 4 PACKAGES <strong>ZA</strong></p>
+    <p class="text-center"> FOR <strong>11%</strong> OFF - 6 PACKAGES <strong>ZA</strong></p>
+    <section class="containers content-section"> <br><br>
         <h2 class="title text-center"> SHOPPING CART</h2><br>
         <div class="cart-row">
             <span class="cart-item cart-header cart-column">ITEM</span>

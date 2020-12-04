@@ -7,16 +7,12 @@
         <meta name="author" content="">
         <title>Главная</title>
         <link href="/public/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/public/css/animate.css" rel="stylesheet">
         <link href="/public/css/main.css" rel="stylesheet">
-        <link href="/public/css/responsive.css" rel="stylesheet">
         <script src="/public/js/main.js" async></script>
     </head><!--/head-->
 
     <body>
         <div class="page-wrapper">
-
-
             <header id="header"><!--header-->
                 <div class="header_top"><!--header_top-->
                     <div class="container">

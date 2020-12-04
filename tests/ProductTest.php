@@ -13,10 +13,10 @@ class ProductTest extends TestCase
     protected $stack;
 
     /**
-     * Index that doesn't consist in DB
+     * Real index that consists in DB
      * @param string $testCode
      */
-    protected $testCode = 'AA';
+    protected $testCode = 'ZA';
 
     protected function setUp(): void
     {
