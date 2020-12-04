@@ -5,7 +5,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2020</p>
+                <p class="pull-left">Sigma © 2020</p>
                 <p class="pull-right">Test Shop</p>
             </div>
         </div>

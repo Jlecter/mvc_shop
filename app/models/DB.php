@@ -14,9 +14,9 @@ class DB
      * @param array $items
      */
     protected static $items = [
-        'ZA' => '£2.00 each or 4 for £7.00',
+        'ZA' => '£2.00', // 4 for £7.00
         'YB' => '£12.00',
-        'FC' => '£1.25 or £6 for a six pack',
+        'FC' => '£1.25', // £6 for a six pack
         'GD' => '£0.15'
     ];
 

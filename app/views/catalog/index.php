@@ -19,7 +19,7 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                                         <div class="productinfo text-center">
                                             <img src="<?php echo Product::getImage(); ?>"><br><br>
                                             <div class="card-buttons">
-                                                <p class="shop-item-title">Product - <?=$code ?></p>
+                                                <p class="shop-item-title"><?=$code ?></p>
                                                 <p class="card-price shop-item-price"><?=$price ?></p>
                                                 <p>
                                                     <a href="/product/<?= $code?>">
@@ -51,7 +51,7 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
         </div>
         <div class="cart-total">
             <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$0</span>
+            <span class="cart-total-price">£0</span>
         </div>
         <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
     </section>

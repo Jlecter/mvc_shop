@@ -10,7 +10,7 @@
         <link href="/public/css/animate.css" rel="stylesheet">
         <link href="/public/css/main.css" rel="stylesheet">
         <link href="/public/css/responsive.css" rel="stylesheet">
-        <script src="/public/js/main.js"></script>
+        <script src="/public/js/main.js" async></script>
     </head><!--/head-->
 
     <body>

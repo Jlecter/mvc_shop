@@ -1,3 +1,4 @@
+console.log('ara');
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -55,12 +56,11 @@ function addToCartClicked(event) {
     let shopItem = button.parentElement.parentElement
     let title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     let price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    let imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    addItemToCart(title, price)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price) {
     let cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     let cartItems = document.getElementsByClassName('cart-items')[0]
@@ -94,10 +94,10 @@ function updateCartTotal() {
         let cartRow = cartRows[i]
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
         let quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        let price = parseFloat(priceElement.innerText.replace('$', ''))
+        let price = parseFloat(priceElement.innerText.replace('£', ''))
         let quantity = quantityElement.value
         total = total + (price * quantity)
     }
     total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+    document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total
 }
