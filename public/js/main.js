@@ -67,7 +67,7 @@ function addItemToCart(title, price) {
     let cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (let i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText === title) {
-            alert('This item is already added to the cart')
+            alert('This item is already added to the cart. To buy more, change the quantity in shopping cart')
             return
         }
     }
@@ -89,7 +89,7 @@ function updateCartTotal() {
     let discountZA = {
        name: 'ZA',
        count: 4,
-       discount: 1
+       discount: 0.125
     }
     let discountFC = {
         name: 'FC',
@@ -105,8 +105,9 @@ function updateCartTotal() {
         let priceElement = cartRow.getElementsByClassName('cart-price')[0]
         let quantity = cartRow.getElementsByClassName('cart-quantity-input')[0].value
         let price = parseFloat(priceElement.innerText.replace('£', ''))
-        if ( productCode === discountZA.name && +quantity === discountZA.count){
-            total = total + (price * quantity) - discountZA.discount
+        var count = 0
+        if ( productCode === discountZA.name && quantity >= discountZA.count && (+quantity % discountZA.count === 0)){
+            total = total + (price * quantity - price * quantity * discountZA.discount)
         }else if(productCode === discountFC.name  && quantity >= discountFC.count && (+quantity % discountFC.count === 0)) {
             total = total + (price * quantity - price * quantity * discountFC.discount)
         }else{
