@@ -87,33 +87,52 @@ function addItemToCart(title, price) {
 
 function updateCartTotal() {
     let discountZA = {
-       name: 'ZA',
-       count: 4,
-       discount: 0.125
-    }
+        name: "ZA",
+        count: 4,
+        discount: 0.125,
+        discountInValue: 1
+    };
     let discountFC = {
-        name: 'FC',
+        name: "FC",
         count: 6,
-        discount: 0.2
-    }
-    let cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    let cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    let total = 0
+        discount: 0.2,
+        discountInValue: 1.5
+    };
+    let cartItemContainer = document.getElementsByClassName("cart-items")[0];
+    let cartRows = cartItemContainer.getElementsByClassName("cart-row");
+    let total = 0;
     for (let i = 0; i < cartRows.length; i++) {
-        let cartRow = cartRows[i]
-        let productCode = cartRow.getElementsByClassName('cart-item-title')[0].innerHTML
-        let priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        let quantity = cartRow.getElementsByClassName('cart-quantity-input')[0].value
-        let price = parseFloat(priceElement.innerText.replace('£', ''))
-        var count = 0
-        if ( productCode === discountZA.name && quantity >= discountZA.count && (+quantity % discountZA.count === 0)){
-            total = total + (price * quantity - price * quantity * discountZA.discount)
-        }else if(productCode === discountFC.name  && quantity >= discountFC.count && (+quantity % discountFC.count === 0)) {
-            total = total + (price * quantity - price * quantity * discountFC.discount)
-        }else{
-            total = total + (price * quantity)
+        let cartRow = cartRows[i];
+        let productCode = cartRow.getElementsByClassName("cart-item-title")[0]
+            .innerHTML;
+        let priceElement = cartRow.getElementsByClassName("cart-price")[0];
+        let quantity = cartRow.getElementsByClassName("cart-quantity-input")[0]
+            .value;
+        let price = parseFloat(priceElement.innerText.replace("£", ""));
+
+        if (productCode === discountZA.name && +quantity === discountZA.count) {
+            total =
+                total + price * quantity - 1;
+            continue;
+        }else if (
+            productCode === discountZA.name && +quantity > discountZA.count
+        ) {
+            total = total + price * quantity - discountZA.discountInValue;
+            continue;
+        }
+
+        if (productCode === discountFC.name && +quantity === discountFC.count) {
+            total =
+                total + (price * quantity - (price * quantity * discountFC.discount));
+        }else if (
+            productCode === discountFC.name && +quantity > discountFC.count
+        ) {
+            total = total + price * quantity - discountFC.discountInValue;
+        } else {
+            total = total + price * quantity;
         }
     }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total
+    total = Math.round(total * 100) / 100;
+    document.getElementsByClassName("cart-total-price")[0].innerText = "£" + total;
 }
+

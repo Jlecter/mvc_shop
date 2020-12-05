@@ -42,8 +42,8 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
     </section>
     <br>
     <h4 class="title text-center">DISCOUNTS</h4>
-    <p class="text-center"> FOR <strong>25%</strong> OFF - EACH 4 PACKAGES <strong>ZA</strong></p>
-    <p class="text-center"> FOR <strong>11%</strong> OFF - EACH 6 PACKAGES <strong>FC</strong></p>
+    <p class="text-center"> FOR <strong>25%</strong> OFF - FIRST 4 PACKAGES <strong>ZA</strong></p>
+    <p class="text-center"> FOR <strong>11%</strong> OFF - FIRST 6 PACKAGES <strong>FC</strong></p>
     <section class="containers content-section"> <br><br>
         <h2 class="title text-center"> SHOPPING CART</h2><br>
         <div class="cart-row">
