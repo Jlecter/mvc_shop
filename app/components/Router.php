@@ -74,7 +74,6 @@ class Router
 
                 //If the controller method is successfully called, we exit the router.
                 if ($result != null) break;
-
             }
         }
     }

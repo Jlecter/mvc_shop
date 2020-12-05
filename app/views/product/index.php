@@ -14,7 +14,7 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
                         <br>
                         <?php foreach ($item as $code => $price): ?>
                             <div class="col-sm-3">
-                                <div  class="product-image-wrapper">
+                                <div>
                                     <div  class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="<?php echo Product::getImage(); ?>"><br><br>

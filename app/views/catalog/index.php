@@ -6,8 +6,8 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
 
     <section>
         <div class="container">
-            <div >
-                <div  > <!-- class="col-sm-9"-->
+            <div>
+                <div>
                     <div class="features_items"><!--features_items-->
                         <br>
                         <h2 class="title text-center" >Catalog</h2>
@@ -59,4 +59,5 @@ require_once ROOT . '/app/views/layouts/header.php'; ?>
         </div>
         <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
     </section>
-<?php include ROOT . '/app/views/layouts/footer.php'; ?>
+
+<?php require_once ROOT . '/app/views/layouts/footer.php'; ?>

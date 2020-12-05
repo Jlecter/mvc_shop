@@ -9,7 +9,7 @@ class Product
      * Returns a list of products
      * @return array
      */
-    public static function getProductsList()
+    public static function getProductsList() : array
     {
         return DB::getProducts();
     }
@@ -19,7 +19,7 @@ class Product
      * @param string $code
      * @return array
      */
-    public static function getProductByCode(string $code)
+    public static function getProductByCode(string $code) : array
     {
         $products = DB::getProducts();
         if (array_key_exists($code, $products)) return [$code => $products[$code]];
@@ -29,7 +29,7 @@ class Product
      * Returns the path to the image of the product that is in delivery
      * @return string
      */
-    public static function getImage()
+    public static function getImage() : string
     {
         // Image title
         $noImage = 'delivery.png';

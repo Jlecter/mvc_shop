@@ -13,6 +13,7 @@ class CatalogController
 
     /**
      * Action for the page "Catalog"
+     * @return bool
      */
     public function actionIndex()
     {
