@@ -5,7 +5,7 @@ CONTENTS OF THIS FILE
 
  * Introduction
  * Requirements
- * Recommended modules
+ * Recommended extensions
  * Installation
  * Configuration
  * Troubleshooting
